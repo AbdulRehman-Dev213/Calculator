@@ -1,0 +1,140 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --calculator-bg: #000000;
+  --number-btn: #343A53;
+  --secondary-btn: #555D7C;
+  --operator-btn: #E58A28;
+  --text-primary: #FFFFFF;
+  --text-secondary: #9A9A9A;
+  --page-bg: #7D91AA;
+  --hover-btn:#eea75c;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: var(--page-bg);
+}
+
+.container {
+    width: min(92vw, 420px);
+    min-height: min(65vh, 760px);
+    background-color: var(--calculator-bg);
+    border-radius: 18px;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.18);
+}
+
+.container .display-number {
+    height: clamp(100px, 18vh, 170px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.container #numberInput {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: clamp(60px, 9vh, 100px);
+    border-radius: 12px;
+    background-color: #bdd5f5;
+    border: none;
+    outline: none;
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    padding: 0 1.2rem;
+    font-family: "Poppins", sans-serif;
+    text-align: right;
+    color: #000;
+    cursor: default;
+    caret-color: transparent;
+    user-select: none;
+    pointer-events: none;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.container .calculator-keypad {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(0.6rem, 2vw, 1rem);
+}
+
+.calculator-keypad button {
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    background-color: var(--number-btn);
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 0.9rem 0.5rem;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    min-height: clamp(52px, 9vw, 72px);
+    transition: all .3s ease;
+}
+
+.calculator-keypad button:hover {
+    background-color: var(--secondary-btn);
+}
+
+.calculator-keypad .operator-button,
+.calculator-keypad .equals-button {
+    background-color: var(--operator-btn);
+}
+
+.calculator-keypad .operator-button:hover,
+.calculator-keypad .equals-button:hover {
+    background-color: var(--hover-btn);
+}
+
+.calculator-keypad .zero-button {
+    grid-column: span 2;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0.75rem;
+    }
+
+    .container {
+        width: min(96vw, 380px);
+        padding: 0.85rem;
+        height: 60vh;
+    }
+
+    .calculator-keypad button {
+        min-height: 52px;
+    }
+}
+
+@media (max-width: 320px) {
+    .container {
+        padding: 0.7rem;
+    }
+
+    .container .calculator-keypad {
+        gap: 0.45rem;
+    }
+
+    .calculator-keypad button {
+        padding: 0.7rem 0.4rem;
+        min-height: 48px;
+    }
+}
